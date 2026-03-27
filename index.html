@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="کتێبخانەی سۆمای ناحوکومی - بینینی کتێبەکان بە شێوەیەکی ئاسان و دابەستنی بە سەما">
+    <meta name="keywords" content="کتێبخانەی سۆما, ناحوکومی, کتێب, سەما, بەشێوەی, دیجیتاڵ">
+    <meta name="author" content="کتێبخانەی سۆمای ناحوکومی">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتێبخانەی سۆمای ناحوکومی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>کتێبخانەی سۆمای ناحوکومی</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" onclick="showSection('home')">سەرەکی</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#books" class="nav-link" onclick="showSection('books')">کتێبەکان</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" onclick="showSection('about')">دەربارە</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>کتێبخانەی سۆمای ناحوکومی</h1>
+                    <p>بەڕێوەبردنی کتێبەکان • ئاسانکردنی گەیشتن بە کتێب • پیشاندانی کتێبەکان بە شێوەی دیجیتاڵ</p>
+                    <button class="cta-button" onclick="showSection('books')">بینینی کتێبەکان</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="section">
+            <div class="container">
+                <h1>کتێبەکان</h1>
+                
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <h3>فلتەرکردن بەپێی جۆر</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterBooks('all')">هەمووی</button>
+                        <button class="filter-btn" onclick="filterBooks('مێژویی')">مێژویی</button>
+                        <button class="filter-btn" onclick="filterBooks('ئەدەبی')">ئەدەبی</button>
+                        <button class="filter-btn" onclick="filterBooks('هۆندراوە')">هۆندراوە</button>
+                        <button class="filter-btn" onclick="filterBooks('ڕۆمانسی')">ڕۆمانسی</button>
+                        <button class="filter-btn" onclick="filterBooks('ڕۆمان')">ڕۆمان</button>
+                        <button class="filter-btn" onclick="filterBooks('چیڕۆک')">چیڕۆک</button>
+                    </div>
+                </div>
+
+                <!-- Books Grid -->
+                <div class="books-grid" id="booksGrid">
+                    <!-- Books will be loaded here from Firebase -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Details Modal -->
+        <div id="bookModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalBookTitle"></h2>
+                <div class="book-details">
+                    <p><strong>جۆر:</strong> <span id="modalBookType"></span></p>
+                    <p><strong>نوسەر:</strong> <span id="modalBookAuthor"></span></p>
+                    <p><strong>دەربارە:</strong> <span id="modalBookDesc"></span></p>
+                    <button id="modalBookLink" class="cta-button" target="_blank">چوونە سەر کتێب</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h1>دەربارە</h1>
+                <div class="about-content">
+                    <h2>دەربارەی کتێبخانەی سۆمای ناحوکومی</h2>
+                    <p>کتێبخانەیەکی بچوکە بۆ کتێبە هەمەجۆرەکان. ئامانجمان ئاسانکردنی گەیشتن بە کتێبەکانە بۆ خوێنەران و پێشکەشکردنی خزمەتگوزارییەکی دیجیتاڵی بۆ پەیمانگا.</p>
+                    
+                    <h3>تایبەتمەندییەکان:</h3>
+                    <ul>
+                        <li>بینینی کتێبەکان بە شێوەیەکی ئاسان</li>
+                        <li>فلتەرکردن بەپێی جۆری کتێب</li>
+                        <li>بینینی وردەکاری کتێب</li>
+                        <li>چوونە سەر لینکی کتێبەکان</li>
+                        <li>سیستەمی بەڕێوبەری بۆ سەرپەرشتیکردنی کتێبەکان</li>
+                    </ul>
+                    
+                    <h3>بەکارهێنانی تەکنەلۆژیا:</h3>
+                    <p>ئەم وێبسایتە بەهێوی تەکنەلۆژیای Firebase کاری دەکات بۆ بەڕێوەبردنی داتابەیس و پاراستنی زانیارییەکان.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app-firebase.js"></script>
+</body>
+</html>
